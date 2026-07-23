@@ -6,7 +6,7 @@ CREATE TABLE agents (
   ,agent_rating DOUBLE PRECISION
 );
 COPY agents
-FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data Preparation\Clean_Dataset\agents.csv'
+FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data\3_Clean_Dataset\agents.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING'UTF-8');
 SELECT *
 FROM agents
@@ -26,11 +26,9 @@ CREATE TABLE customers (
   ,propensity_score DOUBLE PRECISION
 );
 COPY customers
-FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data Preparation\Clean_Dataset\customer.csv'
+FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data\3_Clean_Dataset\customers.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER',',ENCODING'UTF-8');
-SELECT *
-FROM customers
-LIMIT 5;
+
 
 
 CREATE TABLE properties (
@@ -50,7 +48,7 @@ CREATE TABLE properties (
   ,near_school VARCHAR (50)
 );
 COPY properties
-FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data Preparation\Clean_Dataset\properties.csv'
+FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data\3_Clean_Dataset\properties.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER',',ENCODING'UTF-8');
 SELECT *
 FROM properties
@@ -71,11 +69,12 @@ CREATE TABLE listings (
   ,listing_status VARCHAR (50)
 );
 COPY listings
-FROM 'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data Preparation\Clean_Dataset\listings.csv'
+FROM 'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data\3_Clean_Dataset\listings.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER',',ENCODING'UTF-8');
 SELECT *
 FROM listings
 LIMIT 5;
+
 
 
 CREATE TABLE customers_monthly_metrics (
@@ -105,11 +104,12 @@ CREATE TABLE customers_monthly_metrics (
   ,FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
 COPY customers_monthly_metrics
-FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data Preparation\Clean_Dataset\customer_monthly_metrics.csv'
+FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data\3_Clean_Dataset\customer_monthly_metrics.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER',', ENCODING'UTF-8');
 SELECT *
 FROM customers_monthly_metrics
 LIMIT 5;
+
 
 
 CREATE TABLE transactions(
@@ -130,11 +130,13 @@ CREATE TABLE transactions(
     ,FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
 );
 COPY transactions
-FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data Preparation\Clean_Dataset\transactions.csv'
+FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data\3_Clean_Dataset\transactions.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF-8');
 SELECT *
 FROM transactions
 LIMIT 5;
+
+
 
 CREATE TABLE interactions(
   interaction_id TEXT PRIMARY KEY
@@ -150,9 +152,11 @@ CREATE TABLE interactions(
   ,FOREIGN KEY (property_id) REFERENCES properties(property_id)
 );
 COPY interactions
-FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data Preparation\Clean_Dataset\interactions.csv'
+FROM'E:\5_Portofolio Data Analyst\1_Real_Estate_Analysis\Data\3_Clean_Dataset\interactions.csv'
 WITH (FORMAT csv, HEADER true, DELIMITER ',', ENCODING 'UTF-8');
 SELECT *
 FROM interactions
 LIMIT 5;
+
+
 
